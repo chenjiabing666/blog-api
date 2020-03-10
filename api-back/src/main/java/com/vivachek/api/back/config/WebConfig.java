@@ -1,4 +1,4 @@
-package com.vivachek.api.front.config;
+package com.vivachek.api.back.config;
 
 import com.vivachek.core.properties.OathProperties;
 import com.vivachek.oath.intercept.HeadIntercept;
@@ -39,10 +39,10 @@ public class WebConfig implements WebMvcConfigurer {
      */
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-//        //Swagger需要排除的uri
-//        final String[] commonExclude={"/error","/files/**","/system/setting/download","/ws/system/getVersion"};
-//        registry.addInterceptor(headIntercept).excludePathPatterns(oathProperties.getHeadExcludeUri());
-//        registry.addInterceptor(loginIntercept).excludePathPatterns(oathProperties.getLoginExcludeUri());
+        //Swagger需要排除的uri
+        final String[] commonExclude={"/error","/files/**","/system/setting/download","/ws/system/getVersion"};
+        registry.addInterceptor(headIntercept).excludePathPatterns(oathProperties.getHeadExcludeUri());
+        registry.addInterceptor(loginIntercept).excludePathPatterns(oathProperties.getLoginExcludeUri());
 //        registry.addInterceptor(permissionInterceptor).excludePathPatterns(ArrayUtils.addAll(swaggerExclude,commonExclude));
     }
 

@@ -1,5 +1,5 @@
 server:
-  port: 8081
+  port: 8080
   servlet:
     context-path: /api-front
 ## 配置Jdbc
@@ -7,7 +7,7 @@ spring:
   datasource:
     username: root
     password: Nov2014
-    url: jdbc:mysql://120.26.101.207:3306/shiro?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&useSSL=false
+    url: jdbc\:mysql\://120.26.101.207\:3306/vivachek_cloud?useUnicode\=true&characterEncoding\=UTF-8&zeroDateTimeBehavior\=convertToNull&useSSL\=false
     driver-class-name: com.mysql.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
     # 下面为连接池的补充设置，应用到上面所有数据源中
@@ -39,16 +39,12 @@ spring:
         max-active: 8
         min-idle: 0
         maxActive: 10
-#  oath:
-#    secret: blog
-#    issure: http://www.baidu.com
-#    # 过期时间30分钟
-#    accessTokenExpire: 18000000
-#    refreshTokenExpire: 18000000
-#    # 登录拦截器排除的uri
-#    loginExcludeUri:
-#      - /user/register
-#      - /user/login
+  oath:
+    secret: blog
+    issure: http://www.baidu.com
+    # 过期时间30分钟
+    accessTokenExpire: 1800000
+
 
 mybatis:
   mapper-locations: classpath*:/mapper/**/*.xml

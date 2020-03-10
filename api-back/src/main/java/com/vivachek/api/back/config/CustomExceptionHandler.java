@@ -1,4 +1,4 @@
-package com.vivachek.api.front.config;
+package com.vivachek.api.back.config;
 
 import com.vivachek.core.domain.rs.ResponseCode;
 import com.vivachek.core.domain.rs.ResultResponse;

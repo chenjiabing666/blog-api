@@ -1,6 +1,6 @@
-package com.vivachek.api.front.controller;
+package com.vivachek.api.back.controller;
 
-import com.vivachek.core.domain.req.ArticleListReq;
+import com.vivachek.core.domain.req.ArticleAddReq;
 import com.vivachek.core.domain.rs.ResultResponse;
 import com.vivachek.core.utils.ResultResponseUtils;
 import com.vivachek.service.ArticleService;
@@ -24,8 +24,9 @@ public class ArticleController {
     @Autowired
     private ArticleService articleService;
 
-    @PostMapping("/list")
-    public ResultResponse list(@RequestBody @Valid ArticleListReq req){
-        return ResultResponseUtils.resultSucess(articleService.getAll(req));
+    @PostMapping("/add")
+    public ResultResponse list(@RequestBody @Valid ArticleAddReq req){
+        articleService.add(req);
+        return ResultResponseUtils.resultSucess();
     }
 }
