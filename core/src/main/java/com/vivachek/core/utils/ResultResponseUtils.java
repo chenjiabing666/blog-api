@@ -28,6 +28,14 @@ public class ResultResponseUtils {
         return new ResultResponse(ResponseCode.OK.getCode(),ResponseCode.OK.getMsg(),body);
     }
 
+    /**
+     * 处理失败异常
+     * @return
+     */
+    public static ResultResponse resultFail(ResponseCode responseCode){
+        return new ResultResponse(responseCode.getCode(),responseCode.getMsg());
+    }
+
 
 
 }

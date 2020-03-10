@@ -2,6 +2,7 @@ package com.vivachek.oath.intercept;
 
 import com.vivachek.core.domain.oath.HeadParam;
 import com.vivachek.core.domain.oath.RequestConfigInfo;
+import com.vivachek.core.exception.HeadInvaildException;
 import com.vivachek.core.properties.OathProperties;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -42,7 +43,7 @@ public class HeadIntercept implements HandlerInterceptor {
                 .build();
         //校验
         if (StringUtils.isAnyEmpty(headParam.getClientId(),headParam.getPlatform()))
-            throw new HeadlessException();
+            throw new HeadInvaildException();
         //设置在request中
         request.setAttribute(RequestConfigInfo.HEAD_INFO,headParam);
         return true;

@@ -1,7 +1,6 @@
 package com.vivachek.core.utils;
 
 import com.vivachek.core.domain.rs.ResponseCode;
-import com.vivachek.core.domain.rs.ResultResponse;
 import com.vivachek.core.exception.ServiceException;
 
 /**
@@ -12,11 +11,11 @@ import com.vivachek.core.exception.ServiceException;
 public class AssertUtils {
     public static void assertTrue(boolean b){
         if (!b)
-            throw new ServiceException();
+            throw new ServiceException(ResponseCode.SERVICE_EROOR.getMsg(),ResponseCode.SERVICE_EROOR.getCode());
     }
 
     public static void assertTrue(boolean b, ResponseCode responseCode){
         if (!b)
-            throw new ServiceException(responseCode.getMsg(),responseCode.getMsg());
+            throw new ServiceException(responseCode.getMsg(),responseCode.getCode());
     }
 }

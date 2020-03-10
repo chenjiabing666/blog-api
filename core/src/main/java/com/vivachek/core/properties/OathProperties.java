@@ -28,6 +28,9 @@ public class OathProperties {
      */
     private Long accessTokenExpire;
 
+    /**
+     * refreshToken的过期时间
+     */
     private Long refreshTokenExpire;
 
 

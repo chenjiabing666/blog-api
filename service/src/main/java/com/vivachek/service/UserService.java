@@ -15,7 +15,7 @@ public interface UserService {
      * @param userId
      * @return
      */
-    UserInfoVO getUserInfoByUserId(String userId);
+    UserInfoVO getUserInfoByUserId(String accessToken,String userId);
 
     /**
      * 登录

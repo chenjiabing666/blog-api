@@ -47,6 +47,7 @@ public class JwtUtils {
                 .expireAt(claims.getExpiration())
                 .issAt(claims.getIssuedAt())
                 .sub(claims.getSubject())
+                .issure(claims.getIssuer())
                 .build();
 
     }

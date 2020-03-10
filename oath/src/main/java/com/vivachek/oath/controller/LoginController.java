@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
+
 /**
  * @Description TODO
  * @Author CJB
@@ -24,12 +26,12 @@ public class LoginController {
 
 
     @PostMapping("/login")
-    public ResultResponse login(@RequestBody LoginReq req){
+    public ResultResponse login(@RequestBody @Valid LoginReq req){
         return ResultResponseUtils.resultSucess(userService.login(req));
     }
 
     @PostMapping("/register")
-    public ResultResponse register(@RequestBody LoginReq req){
+    public ResultResponse register(@RequestBody @Valid LoginReq req){
         userService.register(req);
         return ResultResponseUtils.resultSucess();
     }

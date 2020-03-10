@@ -1,6 +1,5 @@
 package com.vivachek.service.impl;
 
-import com.oracle.xmlns.internal.webservices.jaxws_databinding.JavaWsdlMappingType;
 import com.vivachek.core.domain.User;
 import com.vivachek.core.domain.jwt.JwtDomain;
 import com.vivachek.core.domain.oath.HeadParam;
@@ -44,9 +43,9 @@ public class UserServiceImpl implements UserService {
     private OathProperties oathProperties;
 
     @Override
-    public UserInfoVO getUserInfoByUserId(String userId) {
+    public UserInfoVO getUserInfoByUserId(String accessToken,String userId){
         //直接从缓存中取
-        UserInfoVO userInfoVO= (UserInfoVO) redisTemplate.opsForValue().get(KeyConfig.ACCESS_TOKEN_KEY_PREFIX+userId);
+        UserInfoVO userInfoVO= (UserInfoVO) redisTemplate.opsForValue().get(accessToken);
         if (userInfoVO==null){
             //从数据库中获取
             userInfoVO=userMapper.selectByUserId(userId);
@@ -54,7 +53,7 @@ public class UserServiceImpl implements UserService {
         //存储在redis中
         if (Objects.nonNull(userInfoVO)) {
             //设置token的失效时间
-            redisTemplate.opsForValue().set(KeyConfig.ACCESS_TOKEN_KEY_PREFIX+userId,userInfoVO,oathProperties.getAccessTokenExpire(), TimeUnit.MILLISECONDS);
+            redisTemplate.opsForValue().set(accessToken,userInfoVO,oathProperties.getAccessTokenExpire(), TimeUnit.MILLISECONDS);
         }
         return userInfoVO;
     }
@@ -122,6 +121,7 @@ public class UserServiceImpl implements UserService {
                 .status(1)
                 .password(MD5Utils.encode(req.getPassword(),salt))
                 .salt(salt)
+                .status(1)
                 .build();
         int i = userMapper.insertUserSelected(user);
         AssertUtils.assertTrue(i==1);

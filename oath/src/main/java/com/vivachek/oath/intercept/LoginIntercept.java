@@ -50,7 +50,7 @@ public class LoginIntercept implements HandlerInterceptor {
             throw new TokenInvalidException();
         }
         //根据token的信息查询用户的相关信息，保存在request中
-        UserInfoVO userInfo = userService.getUserInfoByUserId(jwtDomain.getSub());
+        UserInfoVO userInfo = userService.getUserInfoByUserId(accessToken,jwtDomain.getSub());
         if (userInfo==null)
             //此处用户不存在，暂时报token失效，让其重新登录
             throw new TokenInvalidException();
