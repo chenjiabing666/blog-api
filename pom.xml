@@ -45,7 +45,7 @@
             <version>2.0.0</version>
         </dependency>
 
-        <!--继承mybatis分页插件-->
+        <!--mybatis分页插件-->
         <dependency>
             <groupId>com.github.pagehelper</groupId>
             <artifactId>pagehelper</artifactId>

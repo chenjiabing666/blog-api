@@ -1,4 +1,4 @@
-package com.vivachek.api.front;
+package com.vivachek.api.back;
 
 import com.vivachek.core.properties.OathProperties;
 import org.mybatis.spring.annotation.MapperScan;

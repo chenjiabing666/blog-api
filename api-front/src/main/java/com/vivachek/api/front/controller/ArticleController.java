@@ -23,7 +23,7 @@ public class ArticleController {
 
     @Autowired
     private ArticleService articleService;
-
+//https://gitee.com/zhongshaofa/layuimini
     @PostMapping("/list")
     public ResultResponse list(@RequestBody @Valid ArticleListReq req){
         return ResultResponseUtils.resultSucess(articleService.getAll(req));

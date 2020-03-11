@@ -48,6 +48,6 @@ public class ArticleServiceImpl implements ArticleService {
 
     @Override
     public PageData<Article> getAll(ArticleListReq req) {
-        return PageUtils.getPageInfo(req,()->articleMapper.selectAll());
+        return PageUtils.getPageInfo(req.getPageNum(),req.getPageSize(),()->articleMapper.selectAll());
     }
 }

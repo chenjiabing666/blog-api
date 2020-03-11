@@ -39,18 +39,13 @@ spring:
         max-active: 8
         min-idle: 0
         maxActive: 10
-#  oath:
-#    secret: blog
-#    issure: http://www.baidu.com
-#    # 过期时间30分钟
-#    accessTokenExpire: 18000000
-#    refreshTokenExpire: 18000000
-#    # 登录拦截器排除的uri
-#    loginExcludeUri:
-#      - /user/register
-#      - /user/login
-
 mybatis:
   mapper-locations: classpath*:/mapper/**/*.xml
   configuration:
     map-underscore-to-camel-case: true
+  page:
+    helperDialect: mysql
+    countSql: true
+    reasonable: false
+    pageSizeZero: false
+
