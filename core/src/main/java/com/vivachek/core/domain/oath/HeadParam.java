@@ -19,6 +19,7 @@ public class HeadParam {
     private String platform;
     private String accessToken;
     private String refreshToken;
+    private String version;
 
     /**
      * 平台
